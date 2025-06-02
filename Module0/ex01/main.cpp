@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jpedro-c <joaopcrema@gmail.com>            +#+  +:+       +#+        */
+/*   By: joaorema <joaorema@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 14:47:07 by Jpedro-c          #+#    #+#             */
-/*   Updated: 2025/06/02 16:14:32 by Jpedro-c         ###   ########.fr       */
+/*   Updated: 2025/06/03 00:18:53 by joaorema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 int main ()
 {
+    Phonebook phonebook;
     std::string text;
     std::cout << "Welcome to Phonebook" << std::endl;
     std::cout << "Type a command to start (ADD, SEARCH, EXIT)" << std::endl;
@@ -26,9 +27,9 @@ int main ()
         std::cout << ">"; 
         std::getline(std::cin, text);
         if(text == "ADD" || text == "add")
-            std::cout << "Add mode" << std::endl;
+            phonebook.addContact();
         else if(text == "SEARCH" || text == "search")
-            std::cout << "Search mode" << std::endl;
+            phonebook.searchContact();
         else if(text == "EXIT" || text == "exit")
         {
             std::cout << "Leaving" << std::endl;
