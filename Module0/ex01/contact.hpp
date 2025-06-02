@@ -6,7 +6,7 @@
 /*   By: Jpedro-c <joaopcrema@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 15:03:21 by Jpedro-c          #+#    #+#             */
-/*   Updated: 2025/06/02 15:29:39 by Jpedro-c         ###   ########.fr       */
+/*   Updated: 2025/06/02 16:29:34 by Jpedro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@
 
 class Contact
 {
-public : 
-
-    int number;                                        //int variable that can we used
+private :
+    std::string _firstname;
+    std::string _lastname;
+    std::string _nickname;
+    std::string _phonenumber;
+    std::string _darkestsecret;
+public :                           
     Contact ( void );                                  //constrcutor
     ~Contact ( void );                                 //destructor
-    void teste( void );    
 };
 #endif 
