@@ -6,7 +6,7 @@
 /*   By: Jpedro-c <joaopcrema@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 14:41:15 by Jpedro-c          #+#    #+#             */
-/*   Updated: 2025/06/03 12:35:52 by Jpedro-c         ###   ########.fr       */
+/*   Updated: 2025/06/03 16:54:40 by Jpedro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #include "phonebook.hpp"
 #include <string>
 #include <iomanip>                                                                      // for std::setw
+
+#define CHECK_EOF(str) if (!std::cin) {return;}
+
 
 std::string formatstring(const std::string& str)                                        //formats the text to project specs
 {
@@ -23,13 +26,12 @@ std::string formatstring(const std::string& str)                                
         return std::string(10 - str.length(), ' ') + str;
 }
 
-bool isAllDigits(const std::string& str)                                                //will check every char is its digit or not
+bool isAllDigits(const std::string& str) 
 {
-    for (char c : str) {
-        if (!std::isdigit(static_cast<unsigned char>(c))) 
-        {
+    for (std::string::size_type i = 0; i < str.length(); ++i) 
+    {
+        if (!std::isdigit(static_cast<unsigned char>(str[i])))
             return false;
-        }
     }
     return true;
 }
@@ -45,23 +47,27 @@ void Phonebook::addContact( void )
     std::cout << "First name: ";
     while (std::getline(std::cin, firstname) && firstname.empty())                      //while empty prompt again
         std::cout << "First name cannot be empty. Please enter again: ";
+    CHECK_EOF(firstname);
 
     std::cout << "Last name: ";
     while (std::getline(std::cin, lastname) && lastname.empty())
         std::cout << "Last name cannot be empty. Please enter again: ";
-
+    CHECK_EOF(lastname);
+    
     std::cout << "Nickname: ";
     while (std::getline(std::cin, nickname) && nickname.empty())
         std::cout << "Nickname cannot be empty. Please enter again: ";
-
+    CHECK_EOF(nickname);
+    
     std::cout << "Phone number: ";
     while (std::getline(std::cin, number) && (number.empty() || !isAllDigits(number)))
         std::cout << "Phone number needs to be a digit and cannot be empty. Please enter again: ";
-
+    CHECK_EOF(number);
+    
     std::cout << "Darkest secret: ";
     while (std::getline(std::cin, secret) && secret.empty())
         std::cout << "Darkest secret cannot be empty. Please enter again: ";
-
+    CHECK_EOF(secret);
     contacts[index].setcontact(firstname, lastname, nickname, number, secret);
     index = (index + 1) % 8 ;                                                           // % 8 to be sure it keep between 0 and 7 when at max replaces oldest one
     if(counter < 8)

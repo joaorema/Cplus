@@ -6,7 +6,7 @@
 /*   By: Jpedro-c <joaopcrema@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 12:11:25 by Jpedro-c          #+#    #+#             */
-/*   Updated: 2025/06/02 14:22:14 by Jpedro-c         ###   ########.fr       */
+/*   Updated: 2025/06/03 16:32:13 by Jpedro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int main (int ac, char *av[])
         if(i < ac -1)                                      //after each word puts a space (just avoid putting on last one)
             input += " "; 
     }
-    for (char& myChar : input)                             //create var mychar pointed to input
-        myChar = std::toupper(myChar);                     //pass every char in input in ft toupper
+    for (size_t i = 0; i < input.length(); i++)                           //create var mychar pointed to input
+        input[i] = std::toupper(input[i]);                     //pass every char in input in ft toupper
     std::cout << input << std::endl;
 }
 

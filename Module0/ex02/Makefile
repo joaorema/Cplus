@@ -1,10 +1,9 @@
 CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-TARGET = Phonebook
-SRC = phonebook.cpp \
-      main.cpp \
-      contact.cpp
+TARGET = tester
+SRC = Account.cpp \
+      tests.cpp 
 
 all: $(TARGET)
 
