@@ -6,7 +6,7 @@
 /*   By: Jpedro-c <joaopcrema@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 14:41:15 by Jpedro-c          #+#    #+#             */
-/*   Updated: 2025/06/03 11:12:00 by Jpedro-c         ###   ########.fr       */
+/*   Updated: 2025/06/03 12:35:52 by Jpedro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,17 @@ std::string formatstring(const std::string& str)                                
         return str.substr(0, 9) + ".";
     else
         return std::string(10 - str.length(), ' ') + str;
+}
+
+bool isAllDigits(const std::string& str)                                                //will check every char is its digit or not
+{
+    for (char c : str) {
+        if (!std::isdigit(static_cast<unsigned char>(c))) 
+        {
+            return false;
+        }
+    }
+    return true;
 }
 
 Phonebook::Phonebook( void )                                                            //constructor to start values at 0
@@ -44,8 +55,8 @@ void Phonebook::addContact( void )
         std::cout << "Nickname cannot be empty. Please enter again: ";
 
     std::cout << "Phone number: ";
-    while (std::getline(std::cin, number) && number.empty())
-        std::cout << "Phone number cannot be empty. Please enter again: ";
+    while (std::getline(std::cin, number) && (number.empty() || !isAllDigits(number)))
+        std::cout << "Phone number needs to be a digit and cannot be empty. Please enter again: ";
 
     std::cout << "Darkest secret: ";
     while (std::getline(std::cin, secret) && secret.empty())
@@ -65,13 +76,13 @@ void Phonebook::searchContact( void )
         return;
     }
     std::cout << "---------------------------------------------\n";
-    std::cout << "|   Index|First Name| Last Name|  Nickname|\n";
+    std::cout << "|     Index|First Name| Last Name|  Nickname|\n";
     std::cout << "---------------------------------------------\n";
 
     for(int i = 0; i < counter; i++)                                                    //print available contacts on phonebook
     {
         std::cout << "|"
-                  << std::setw(8) << i << "|"
+                  << std::setw(10) << i << "|"                                          //set colums to 10chars wide
                   << formatstring(contacts[i].getfirstname()) << "|"
                   << formatstring(contacts[i].getlastname()) << "|"
                   << formatstring(contacts[i].getnickname()) << "|\n";
@@ -102,5 +113,6 @@ void Phonebook::searchContact( void )
 
 Phonebook::~Phonebook ( void )
 {
-   // std::cout << "Destuctor test" << std::endl;
+   
 }
+
