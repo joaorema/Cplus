@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaorema <joaorema@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Jpedro-c <joaopcrema@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 14:47:07 by Jpedro-c          #+#    #+#             */
-/*   Updated: 2025/06/03 00:18:53 by joaorema         ###   ########.fr       */
+/*   Updated: 2025/06/03 11:03:07 by Jpedro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ int main ()
     {
         std::cout << ">"; 
         std::getline(std::cin, text);
-        if(text == "ADD" || text == "add")
+        if(text == "ADD")
             phonebook.addContact();
-        else if(text == "SEARCH" || text == "search")
+        else if(text == "SEARCH")
             phonebook.searchContact();
-        else if(text == "EXIT" || text == "exit")
+        else if(text == "EXIT")
         {
             std::cout << "Leaving" << std::endl;
             break;

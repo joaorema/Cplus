@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaorema <joaorema@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Jpedro-c <joaopcrema@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 14:39:29 by Jpedro-c          #+#    #+#             */
-/*   Updated: 2025/06/02 23:52:27 by joaorema         ###   ########.fr       */
+/*   Updated: 2025/06/03 11:05:51 by Jpedro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,16 @@
 #include "contact.hpp"
 #include <string>
 
-//file to create class (header)
-
 class Phonebook
 {
-private :
-    Contact contacts[8];
-    int index;
-    int counter;
-public : 
-    Phonebook ( void );                                  //constrcutor
-    ~Phonebook ( void );                                 //destructor
-    void addContact();
-    void searchContact();
+    private :
+        Contact contacts[8];                                 //max contacts 8
+        int index;                                           //index to decided what contact to get extra info
+        int counter;                                         //max counter (8)
+    public : 
+        Phonebook ( void );                                  //constrcutor
+        ~Phonebook ( void );                                 //destructor
+        void addContact();                                   //add contact
+        void searchContact();                                //search contact
 };
-#endif 
+#endif

@@ -3,21 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaorema <joaorema@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Jpedro-c <joaopcrema@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 14:41:15 by Jpedro-c          #+#    #+#             */
-/*   Updated: 2025/06/03 00:31:09 by joaorema         ###   ########.fr       */
+/*   Updated: 2025/06/03 11:12:00 by Jpedro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "phonebook.hpp"
 #include <string>
-#include <iomanip>   // for std::setw
+#include <iomanip>                                                                      // for std::setw
 
-//file where we define what the contructor e destructor do in this object
-
-std::string formatstring(const std::string& str)
+std::string formatstring(const std::string& str)                                        //formats the text to project specs
 {
     if(str.length() > 10)
         return str.substr(0, 9) + ".";
@@ -25,7 +23,7 @@ std::string formatstring(const std::string& str)
         return std::string(10 - str.length(), ' ') + str;
 }
 
-Phonebook::Phonebook( void )
+Phonebook::Phonebook( void )                                                            //constructor to start values at 0
 {
    index = 0;
    counter = 0;
@@ -34,7 +32,7 @@ void Phonebook::addContact( void )
 {
     std::string firstname, lastname , nickname, number, secret;
     std::cout << "First name: ";
-    while (std::getline(std::cin, firstname) && firstname.empty())
+    while (std::getline(std::cin, firstname) && firstname.empty())                      //while empty prompt again
         std::cout << "First name cannot be empty. Please enter again: ";
 
     std::cout << "Last name: ";
@@ -54,14 +52,14 @@ void Phonebook::addContact( void )
         std::cout << "Darkest secret cannot be empty. Please enter again: ";
 
     contacts[index].setcontact(firstname, lastname, nickname, number, secret);
-    index = (index + 1) % 8 ;                                                   // % 8 to be sure it keep between 0 and 7
+    index = (index + 1) % 8 ;                                                           // % 8 to be sure it keep between 0 and 7 when at max replaces oldest one
     if(counter < 8)
         counter++;
 }
 
 void Phonebook::searchContact( void )
 {
-    if(counter == 0)
+    if(counter == 0)                                                                    //if no contacts 
     {
         std::cout << "No contacts saved yet!" << std::endl;
         return;
@@ -70,7 +68,7 @@ void Phonebook::searchContact( void )
     std::cout << "|   Index|First Name| Last Name|  Nickname|\n";
     std::cout << "---------------------------------------------\n";
 
-    for(int i = 0; i < counter; i++)
+    for(int i = 0; i < counter; i++)                                                    //print available contacts on phonebook
     {
         std::cout << "|"
                   << std::setw(8) << i << "|"
@@ -84,12 +82,12 @@ void Phonebook::searchContact( void )
     std::string input;
     std::getline(std::cin, input);
     
-    if(input.length() != 1 || !isdigit(input[0]))
+    if(input.length() != 1 || !isdigit(input[0]))                                       //if index not number or with len !=1
     {
         std::cout << "Invalid Input!" << std::endl;
         return;
     }
-    int i = input[0] - '0';
+    int i = input[0] - '0';                                                             //if input = 5 // 53-48 = 5                                              
     if(i < 0 || i >= counter)
     {
         std::cout << "Index out of range!" << std::endl;

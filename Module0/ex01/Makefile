@@ -1,17 +1,15 @@
-CXX = c++                                  
+CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra
 
-TARGET = Phonebook                     
+TARGET = Phonebook
 SRC = phonebook.cpp \
-      phonebook.hpp \
-	  main.cpp		\
-	  contact.cpp   \
-	  contact.hpp
+      main.cpp \
+      contact.cpp
 
 all: $(TARGET)
 
 $(TARGET): $(SRC)
 	@$(CXX) $(CXXFLAGS) $^ -o $@
 
-clean: 
+clean:
 	@rm -f $(TARGET)
