@@ -6,7 +6,7 @@
 /*   By: Jpedro-c <joaopcrema@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 11:31:39 by Jpedro-c          #+#    #+#             */
-/*   Updated: 2025/06/03 15:41:26 by Jpedro-c         ###   ########.fr       */
+/*   Updated: 2025/06/04 12:18:11 by Jpedro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ bool Account::makeWithdrawal(int withdrawal)
 
         std::cout << ";withdrawal:" << withdrawal
                   << ";amount:" << _amount
-                  << ";nb_withdrawals:" << _totalNbWithdrawals << std::endl;
+                  << ";nb_withdrawals:" << _nbWithdrawals << std::endl;
         return true;
     }
     else
