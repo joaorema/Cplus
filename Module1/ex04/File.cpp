@@ -6,7 +6,7 @@
 /*   By: Jpedro-c <joaopcrema@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 12:27:39 by Jpedro-c          #+#    #+#             */
-/*   Updated: 2025/06/06 13:12:00 by Jpedro-c         ###   ########.fr       */
+/*   Updated: 2025/06/06 13:19:48 by Jpedro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ void File::setS2(std::string s2)
 
 //fuctions
 
-void File::changeFile()                                 //fuction to  
+void File::changeFile()                                 //fuction to open file / create new file and replace 
 {
-    std::ifstream inputFile(_filename.c_str());                 //open the file that needs to be changed
+    std::ifstream inputFile(_filename.c_str());         //open the file that needs to be changed
     if (!inputFile.is_open())                           //if we failed to open file
     {
         std::cerr << "Error. Failed to open file" << _filename << ".replace" << std::endl;
