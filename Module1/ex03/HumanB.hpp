@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Jpedro-c <joaopcrema@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/05 11:07:22 by Jpedro-c          #+#    #+#             */
-/*   Updated: 2025/06/06 10:57:30 by Jpedro-c         ###   ########.fr       */
+/*   Created: 2025/06/05 13:11:59 by Jpedro-c          #+#    #+#             */
+/*   Updated: 2025/06/06 11:55:40 by Jpedro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <iostream>
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
+
 #include <string>
+#include <iostream>
+#include "Weapon.hpp"
 
-Zombie::Zombie(void)
+class HumanB
 {
-   
-}
-Zombie::~Zombie(void)
-{
-    std::cout << this->_name << " Died!" << std::endl;
-}
+    private:
+        std::string _name;
+        Weapon* _weapon;
+    public:
+        HumanB(std::string name);
+        ~HumanB(void);
+        void setWeapon(Weapon& weapon);
+        void attack();
+};  
 
-Zombie::Zombie(std::string name)
-{
-    this->_name = name;
-    std::cout << this->_name << " was bitten" << std::endl;
-}
-
-void::Zombie::annouce()
-{
-    std::cout << this->_name << " BraiiiiiiinnnzzzZ..." << std::endl; 
-}
+#endif
