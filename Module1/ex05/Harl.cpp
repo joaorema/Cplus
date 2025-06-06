@@ -6,7 +6,7 @@
 /*   By: Jpedro-c <joaopcrema@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 14:07:43 by Jpedro-c          #+#    #+#             */
-/*   Updated: 2025/06/06 14:46:30 by Jpedro-c         ###   ########.fr       */
+/*   Updated: 2025/06/06 15:22:05 by Jpedro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,18 @@ Harl::~Harl(void) {}
 
 void Harl::complain(std::string level)
 {
-    std::map<std::string, void (Harl::*)(void)>levelMap;              //we create a map to acess the private fuctions with ptrs*
-    levelMap["DEBUG"] = &Harl::debug;
-    levelMap["INFO"] = &Harl::info;
-    levelMap["WARNING"] = &Harl::warning;
-    levelMap["ERROR"] = &Harl::error;
-    
-    if(levelMap.find(level) != levelMap.end())                          //will check if the lvl passed exists in our maps
+    const std::string levels[4] = {"DEBUG" , "INFO", "WARNING", "ERROR"};                           //create and array of lvls
+    void (Harl::*functions[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};    //array of corresponding fuction pointers
+
+    for(int i = 0; i < 4; i++)
     {
-        (this->*levelMap[level])();
+        if(levels[i] == level)
+        {
+            (this->*functions[i])();
+            return ;
+        }
     }
-    else
-        std::cout << "Invalid level: " << level << std::endl;
-    
+    std::cout << "Invalid level " << level << std::endl;
     
 }
 
@@ -46,7 +45,7 @@ void Harl::complain(std::string level)
 
 void Harl::debug(void)
 {
-    std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!" << std::endl;
+    std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special ketchup burger. I really do!" << std::endl;
 }
 
 void Harl::info(void)

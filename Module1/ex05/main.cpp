@@ -6,7 +6,7 @@
 /*   By: Jpedro-c <joaopcrema@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 14:07:47 by Jpedro-c          #+#    #+#             */
-/*   Updated: 2025/06/06 14:45:23 by Jpedro-c         ###   ########.fr       */
+/*   Updated: 2025/06/06 15:22:35 by Jpedro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,6 @@ int main()
     harl.complain("WARNING");
     harl.complain("ERROR");
     harl.complain("CHESEBURGER!!!!!");
+    harl.complain("REMAAAAAAAA!!!!!");
+    
 }
