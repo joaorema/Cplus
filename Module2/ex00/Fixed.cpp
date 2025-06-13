@@ -53,3 +53,4 @@ Fixed& Fixed::operator=(const Fixed &other)
         this->_fixedptr = other.getRawBits();                     //copy the value of fixedptr from other
     return *this;                                                 //return the current object
 }
+
