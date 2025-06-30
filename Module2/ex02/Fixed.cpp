@@ -124,14 +124,14 @@ Fixed Fixed::operator-(const Fixed& other) const
 Fixed Fixed::operator*(const Fixed& other) const
 {
     Fixed result;
-    result.setRawBits(this->getRawBits() * other.getRawBits());
+    result.setRawBits((this->getRawBits() * other.getRawBits()) >> this->_fractbits);
     return result;
 }
 
 Fixed Fixed::operator/(const Fixed& other) const
 {
     Fixed result;
-    result.setRawBits(this->getRawBits() / other.getRawBits());
+    result.setRawBits((this->getRawBits() << this->_fractbits) / (other.getRawBits() << other._fractbits));
     return result;
 }
 
@@ -159,6 +159,38 @@ Fixed& Fixed::operator--()
 {
     this->_fixedptr--;
     return *this;
+}
+
+const Fixed&    Fixed::min(const Fixed& one, const Fixed& two)
+{
+    if(one < two)
+        return one;
+    else
+        return two;
+}
+
+const Fixed&    Fixed::max(const Fixed& one, const Fixed& two)
+{
+    if(one < two)
+        return two;
+    else
+        return one;
+}
+
+Fixed& Fixed::min(Fixed& one , Fixed& two)
+{
+    if(one < two)
+        return one;
+    else
+        return two;
+}
+
+Fixed& Fixed::max(Fixed& one , Fixed& two)
+{
+    if(one < two)
+        return two;
+    else
+        return one;
 }
 
 //extra fuctions                                                            // an overload of the << operator 

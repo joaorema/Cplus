@@ -29,7 +29,7 @@ Zombie::Zombie(std::string name)
     std::cout << this->_name << " was bitten" << std::endl;
 }
 
-void::Zombie::annouce()
+void Zombie::announce()
 {
     std::cout << this->_name << " BraiiiiiiinnnzzzZ..." << std::endl; 
 }

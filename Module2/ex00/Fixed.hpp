@@ -19,8 +19,8 @@
 class Fixed
 {
     private:
-        int _fixedptr;
-        static const int _fractbits = 8;
+        int _fixedptr;                              //nbr in fixed point nbr
+        static const int _fractbits = 8;            //8 bits 2^8 = 256
         
     public:
         Fixed();                                    //contructor

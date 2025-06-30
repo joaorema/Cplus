@@ -24,7 +24,7 @@ class Zombie
         Zombie (void);                                      //constructor
         ~Zombie (void);                                     //destructor
         Zombie(std::string name);                           //creates zombie with name
-        void annouce ();                                    //announce
+        void announce ();                                    //announce
 };
 
 Zombie *newZombie(std::string name);                        //crates newzombie with name and returns it(on file newzombie)

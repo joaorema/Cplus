@@ -14,7 +14,7 @@
 
 //constructor & destructor 
 
-Fixed::Fixed() : _fixedptr(0)                               //starts fixedptr at 0
+Fixed::Fixed() : _fixedptr(5)                               //starts fixedptr at 0
 {
     std::cout << "Creating class" << std::endl;       
 }

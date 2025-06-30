@@ -12,6 +12,7 @@
 
 #include "Fixed.hpp"
 
+// in a fixed point system we store values with nbr * 256  
 //constructor & destructor 
 
 Fixed::Fixed() : _fixedptr(0)                               //starts fixedptr at 0
@@ -40,7 +41,6 @@ Fixed::~Fixed()
     std::cout << "Destroying class" << std::endl;
 }
 
-
 //getter and setters
 
 int Fixed::getRawBits(void) const
@@ -57,12 +57,12 @@ void Fixed::setRawBits(int const raw)
 
 float Fixed::toFloat(void) const
 {
-    return (static_cast<float>(this->_fixedptr) / (1 << this->_fractbits)); // Divide the raw fixed-point value by 2^_fractbits to get the float equivalent
+    return (static_cast<float>(this->_fixedptr) / (1 << this->_fractbits)); // Divide the raw fixed-point value by 2^_fractbits to get the float equivalent(we float the divide)
 }
 
-int Fixed::toInt(void) const
+int Fixed::toInt(void) const   
 {
-    return this->_fixedptr / (1 << this->_fractbits);                       // Right shift (or divide) by 2^_fractbits to get the integer part
+    return this->_fixedptr >> this->_fractbits;                       // Right shift (or divide) by 2^_fractbits to get the integer part (divided value /256 = 2^8)
 }
 
 //copy constructor 
@@ -82,3 +82,4 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
     os << fixed.toFloat();
     return os;
 }
+

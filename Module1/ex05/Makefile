@@ -1,7 +1,7 @@
 CXX = c++                                  
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-TARGET = Harl                     
+TARGET = HarlFilter                     
 SRC = main.cpp   \
 	  Harl.cpp \
 

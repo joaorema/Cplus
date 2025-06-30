@@ -56,6 +56,10 @@ class Fixed
         Fixed& operator++(void);                    //pre increment. returns value then increments
         Fixed& operator--(void);                    //pre decrement.
 
+        static const Fixed& min(const Fixed& one, const Fixed& two);
+        static Fixed& min(Fixed& one, Fixed& two);
+        static const Fixed& max(const Fixed& one, const Fixed& two);
+        static Fixed& max(Fixed& one, Fixed& two);
         
   
 };

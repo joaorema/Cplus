@@ -20,9 +20,10 @@ int main()
     Zombie *PtrZombie;
 
     OneZombie = newZombie("John");         //used newZombie to create 1 zombie with spec name
-    OneZombie->annouce();                  //announce "brainzzzz!!!"
+    OneZombie->announce();                  //announce "brainzzzz!!!"
     
     PtrZombie = newZombie("Ana");
+    PtrZombie->announce();
     
     randomChump("Anisa");
     randomChump("Miguel");

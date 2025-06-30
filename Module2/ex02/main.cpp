@@ -17,32 +17,22 @@
 
 int main( void ) 
 {
-    Fixed a(42);
-    Fixed b(10);
+    Fixed a;
+    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
+    std::cout << a << std::endl;
+    std::cout << ++a << std::endl;
+    std::cout << a << std::endl;
+    std::cout << a++ << std::endl;
+    std::cout << a << std::endl;
+    std::cout << b << std::endl;
+    std::cout << Fixed::max( a, b ) << std::endl;
 
-    std::cout << "a is " << a << std::endl;
-    std::cout << "b is " << b << std::endl;
-    
-    std::cout << "a + b is: " << a.operator+(b) << std::endl;
-    std::cout << "a - b is: " << a.operator-(b) << std::endl;
-    std::cout << "a * b is: " << a.operator*(b) << std::endl;
-    std::cout << "a / b is: " << a.operator/(b) << std::endl;
+    std::cout << "Testing other fts:" << std::endl;
+    std::cout << "a + b = " << a + b << std::endl;
+    std::cout << "b - a = " << b - a << std::endl;
+    std::cout << "b / a = " << b / a << std::endl;
 
-    //more tests
-
-    std::cout << "is a bigger than b? :" << a.operator>(b) << std::endl;
-    std::cout << "is a smaller than b? :" << a.operator<(b) << std::endl;
-    std::cout << "is a equal to b? :" << a.operator==(b) << std::endl;
-    std::cout << "is a different than b? :" << a.operator!=(b) << std::endl;
-
-    std::cout << "Pre increment a : " << a++ << std::endl;
-    std::cout << "a is " << a << std::endl;
-    std::cout << "Pos increment b : " << ++b << std::endl;
-    std::cout << "Pre decrement a :" << a-- << std::endl;
-    std::cout << "a is " << a << std::endl;
-    std::cout << "Pre decrement b : " << --b << std::endl;
-    
     return 0;
 }
 
