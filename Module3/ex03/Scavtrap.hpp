@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 
-class Scavtrap : public Claptrap
+class Scavtrap : virtual public Claptrap
 {
     private:
         bool _defmode;
@@ -17,7 +17,6 @@ class Scavtrap : public Claptrap
         bool getDefMode(void) const;
         void setDefmode(bool);
         void attack(const std::string& target);
-
         
 
 };

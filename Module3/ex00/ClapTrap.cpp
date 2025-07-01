@@ -98,7 +98,7 @@ void Claptrap::takeDamage(unsigned int amount)
 
 void Claptrap::beRepaired(unsigned int amount)
 {
-    if(this->_energypoints > 0 && this->_hitpoints > 0)
+    if(this->_energypoints > 0 && this->_hitpoints > 0 && this->_hitpoints < 100)
     {
         std::cout << "Claptrap " << this->_name 
                   << " restored " << amount 
@@ -106,6 +106,8 @@ void Claptrap::beRepaired(unsigned int amount)
         this->_energypoints = this->_energypoints - 1;
         this->_hitpoints += amount;
     }
+    else if (this->_hitpoints == 100)
+        std::cout << "Can't repair. " << _name << " still has all of his hitpoints" << std::endl;
     else
         std::cout << "Claptrap can't be repeaired . It has no more energy points" << std::endl;
 }

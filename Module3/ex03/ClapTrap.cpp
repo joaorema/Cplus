@@ -3,12 +3,12 @@
 //constructor & destructor
 Claptrap::Claptrap() : _hitpoints(100), _energypoints(10), _attackdamage(0)
 {
-    std::cout << "Claptrap was created" << std::endl;
+    //std::cout << "Claptrap was created" << std::endl;
 }
 
-Claptrap::Claptrap(std::string name) : _hitpoints(100), _energypoints(10), _attackdamage(0)
+Claptrap::Claptrap(std::string name) : _name(name), _hitpoints(100), _energypoints(10), _attackdamage(0)
 {
-    this->_name = name;
+    
     std::cout << "Claptrap " << this->_name 
               << " was created" << std::endl;
 }
@@ -72,7 +72,7 @@ void Claptrap::attack(const std::string& target)
 {   
     if(this->_energypoints > 0)
     {
-        std::cout << "Claptrap " << this->_name 
+        std::cout << this->_name 
                   << " attacks " << target 
                   << " causing " << this->_attackdamage 
                   << " points of damage" << std::endl;

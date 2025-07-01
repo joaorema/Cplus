@@ -17,7 +17,6 @@ class Scavtrap : public Claptrap
         bool getDefMode(void) const;
         void setDefmode(bool);
         void attack(const std::string& target);
-
         
 
 };
