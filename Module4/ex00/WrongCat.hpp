@@ -3,17 +3,17 @@
 
 #include "WrongAnimal.hpp"
 
-
 class WrongCat : public WrongAnimal
 {
     private:
-        
+
     public:
         WrongCat();
-        WrongCat(std::string type);
         ~WrongCat();
-        void makeSound()const ;
 
+        std::string getType()const;
+
+        void makeSound()const;   //only acessible if wrongcat not ptr or reference to main class
 };
 
 #endif

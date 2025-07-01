@@ -2,22 +2,21 @@
 
 WrongCat::WrongCat()
 {
-    type = "WrongCat";
-    std::cout << "Created a Wrongcat" << std::endl;
-}
-
-WrongCat::WrongCat(std::string type)
-{
-    this->type = type;
-    std::cout << this->type << " was created " << std::endl;
+    type = "Wrongcat";
+    std::cout << "Created one " << type << std::endl;
 }
 
 WrongCat::~WrongCat()
 {
-   // std::cout << this->type << " was destroyed" << std::endl;
+    std::cout << "Destroyed one " << type << std::endl;
 }
 
-void WrongCat::makeSound() const
+std::string WrongCat::getType()const 
 {
-    std::cout << "Moo Moo" << std::endl;
+    return type;
+}
+
+void WrongCat::makeSound()const 
+{
+    std::cout << "UAIM UAIM" << std::endl;
 }

@@ -1,22 +1,17 @@
 #include "Animal.hpp"
 
-Animal::Animal() : type("Animal")
+Animal::Animal() 
 {
-    std::cout << "Animal created" << std::endl;
-}
-
-Animal::Animal(std::string type) : type(type)
-{
-    std::cout << type << " was created" << std::endl;
+    std::cout << "Primary Class Animal created" << std::endl;
+    type = "Animal";
 }
 
 Animal::~Animal()
 {
-    std::cout << type <<  " destroyed" << std::endl;
+    std::cout << "Animal Destroyed" << std::endl;
 }
 
-
-std::string Animal::getType()const
+std::string Animal::getType() const
 {
     return type;
 }
@@ -28,5 +23,5 @@ void Animal::setType(std::string type)
 
 void Animal::makeSound()const
 {
-    std::cout << "Generic animal noise" << std::endl;
+    std::cout << "General Animal Noise" << std::endl;
 }

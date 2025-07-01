@@ -1,36 +1,55 @@
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
-#include "WrongAnimal.hpp"
+#include "WrongAnimal.hpp"      
 #include "WrongCat.hpp"
-
 
 int main()
 {
-    const Animal* meta = new Animal();
-    const WrongAnimal* beta = new WrongCat();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    WrongAnimal a;
-    WrongCat b;
+    const Animal* one = new Animal();
+    const Animal* two = new Cat();
+    const Animal* three = new Dog();
+    const WrongAnimal* four = new WrongAnimal();
+    const WrongAnimal* five = new WrongCat();
 
+    Animal a;
+    Cat b;
+    Dog c;
+    WrongAnimal d;
+    WrongCat e;
 
-    std::cout << a.getType() << std::endl; // "WrongAnimal"
-    std::cout << b.getType() << std::endl; // "WrongCat"
-    std::cout << meta->getType() << std::endl;
-    std::cout << j->getType() << std::endl;
-    std::cout << i->getType() << std::endl;
+    std::cout << "lets check if types of ptrs are correct" << std::endl;
+    std::cout << "One type : " << one->getType() << std::endl;
+    std::cout << "Two type : " << two->getType() << std::endl;
+    std::cout << "Three type : " << three->getType() << std::endl;    
 
+    std::cout << "lets check if types in normal are correct" << std::endl;
+    std::cout << "A type : " << a.getType() << std::endl;
+    std::cout << "B type : " << b.getType() << std::endl;
+    std::cout << "C type : " << c.getType() << std::endl;
+
+    std::cout << "lets now check makesound for ptr" << std::endl;
+    one->makeSound();
+    two->makeSound();
+    three->makeSound();
+
+    std::cout << "lets now check makesound for normal" << std::endl;
     a.makeSound();
     b.makeSound();
-    meta->makeSound();
-    j->makeSound();
-    i->makeSound();
-    beta->makeSound();
+    c.makeSound();
 
-    delete(meta);
-    delete(beta);
-    delete(j);
-    delete(i);
-   
+    std::cout << "lets now do the final tests the project asks for" << std::endl;
+    std::cout << "calling makesound on ptr WrongAnimal and Wrong cat" << std::endl;
+    four->makeSound();
+    five->makeSound();
+
+    std::cout << "calling makesound on normal WrongAnimal and Wrong cat" << std::endl;
+    d.makeSound();
+    e.makeSound();
+
+    delete(one);
+    delete(two);
+    delete(three);
+    delete(four);
+    delete(five);
 }

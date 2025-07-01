@@ -3,21 +3,25 @@
 Cat::Cat()
 {
     type = "Cat";
-    std::cout << "Created a cat" << std::endl;
-}
-
-Cat::Cat(std::string type)
-{
-    this->type = type;
-    std::cout << this->type << " was created " << std::endl;
+    std::cout << "Created one " << type << std::endl;
 }
 
 Cat::~Cat()
 {
-   // std::cout << this->type << " was destroyed" << std::endl;
+    std::cout << "Destroyed one " << type << std::endl;
+}
+
+std::string Cat::getType()const
+{
+    return type;
+}
+
+void Cat::setType(std::string type)
+{
+    this->type = type;
 }
 
 void Cat::makeSound() const
 {
-    std::cout << "MIAU MIAU MIAU" << std::endl;
+    std::cout << "Miau Miau" << std::endl;
 }

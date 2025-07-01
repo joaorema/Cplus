@@ -6,13 +6,16 @@
 class Cat : public Animal
 {
     private:
-        
+
     public:
         Cat();
-        Cat(std::string type);
         ~Cat();
-        virtual void makeSound()const ;
 
+        std::string getType()const;
+        void setType(std::string type);
+
+        virtual void makeSound() const;
 };
+
 
 #endif

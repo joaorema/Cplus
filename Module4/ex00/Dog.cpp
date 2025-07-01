@@ -1,24 +1,27 @@
 #include "Dog.hpp"
 
-
 Dog::Dog()
 {
     type = "Dog";
-    std::cout << "Created a dog" << std::endl;
-}
-
-Dog::Dog(std::string type)
-{
-    this->type = type;
-    std::cout << this->type << " was created " << std::endl;
+    std::cout << "Created one " << type << std::endl;
 }
 
 Dog::~Dog()
 {
-    //std::cout << this->type << " was destroyed" << std::endl;
+    std::cout << "Destroyed one " << type << std::endl;
 }
 
-void Dog::makeSound()const 
+std::string Dog::getType()const
 {
-    std::cout << "WOOF WOOF" << std::endl;
+    return type;
+}
+
+void Dog::setType(std::string type)
+{
+    this->type = type;
+}
+
+void Dog::makeSound()const
+{
+    std::cout << "Woof Woof" << std::endl;
 }

@@ -1,32 +1,22 @@
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal() : type("WrongAnimal")
+WrongAnimal::WrongAnimal()
 {
-    std::cout << "Wrong Animal created" << std::endl;
-}
-
-WrongAnimal::WrongAnimal(std::string type) : type(type)
-{
-    std::cout << type << " was created" << std::endl;
+    type = "WrongAnimal";
+    std::cout << "Created one " << type << std::endl;
 }
 
 WrongAnimal::~WrongAnimal()
 {
-    std::cout << type <<  " destroyed" << std::endl;
+    std::cout << "Destroyed one " << type << std::endl;
 }
-
 
 std::string WrongAnimal::getType()const
 {
     return type;
 }
 
-void WrongAnimal::setType(std::string type)
+void WrongAnimal::makeSound() const
 {
-    this->type = type;
-}
-
-void WrongAnimal::makeSound()const
-{
-    std::cout << "Moo Moo" << std::endl;
+    std::cout << "Wrong animal makes a weird noise" << std::endl;
 }
