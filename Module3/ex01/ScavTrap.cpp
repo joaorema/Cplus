@@ -43,6 +43,14 @@ void Scavtrap::setDefmode(bool)
 
 void Scavtrap::attack(const std::string& target)
 {
-    std::cout << "Scavtrap " << this->_name << "attacks" << target;
-    Claptrap::attack(target);
+    if(this->_energypoints > 0)
+    {
+        std::cout << "Scavtrap " << this->_name 
+                  << " attacks " << target 
+                  << " causing " << this->_attackdamage 
+                  << " points of damage" << std::endl;
+        this->_energypoints = this->_energypoints - 1;
+    }
+    else
+        std::cout << "Scavtrap can't attack . It has no more energy points" << std::endl;
 }

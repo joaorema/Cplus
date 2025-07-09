@@ -17,5 +17,6 @@ int main()
     c.beRepaired(5);
     std::cout << c.getName() << " Hitpoints = " << c.getHitPoints() << std::endl;
     c.guardgate();
+    c.attack(b.getName());
 
 }

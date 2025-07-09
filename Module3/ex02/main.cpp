@@ -20,5 +20,12 @@ int main()
     std::cout << c.getName() << " Hitpoints = " << c.getHitPoints() << std::endl;
     c.guardgate();
     d.highFiveGuys();
+    c.attack(a.getName());
+    a.takeDamage(c.getAttackDamage());
+    std::cout << a.getName() << " Hitpoints = " << a.getHitPoints() << std::endl;
+    d.attack(c.getName());
+    c.takeDamage(d.getAttackDamage());
+    std::cout << c.getName() << " Hitpoints = " << c.getHitPoints() << std::endl;
+
 
 }

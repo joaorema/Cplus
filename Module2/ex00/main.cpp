@@ -23,9 +23,10 @@ int main( void )
     
     c = b;
     
-    a.setRawBits(5);
-    b.setRawBits(10);
-    c.setRawBits(42);
+    
+    //a.setRawBits(5);
+    //b.setRawBits(10);
+    //c.setRawBits(42);
     std::cout << a.getRawBits() << std::endl;
     std::cout << b.getRawBits() << std::endl;
     std::cout << c.getRawBits() << std::endl;

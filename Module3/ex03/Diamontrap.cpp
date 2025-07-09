@@ -32,10 +32,39 @@ void Diamontrap::whoAmI()
 void Diamontrap::attack(const std::string& target)
 {
     Scavtrap::attack(target);
-    
 }
 
 std::string Diamontrap::getName(void) const
 {
     return this->_name;
+}
+
+void Diamontrap::takeDamage(unsigned int amount)
+{
+    if(this->_energypoints > 0)
+    {
+        std::cout << "Diamontrap " << this->_name 
+                  << " suffers " << amount 
+                  << " damage" << std::endl;
+        this->_hitpoints -= amount;
+    }
+    else
+        std::cout << "The Diamontrap attacked is already hat 0 Hit points" << std::endl;
+
+}
+
+void Diamontrap::beRepaired(unsigned int amount)
+{
+    if(this->_energypoints > 0 && this->_hitpoints > 0 && this->_hitpoints < 100)
+    {
+        std::cout << "Diamontrap " << this->_name 
+                  << " restored " << amount 
+                  << " Hitpoints" << std::endl;
+        this->_energypoints = this->_energypoints - 1;
+        this->_hitpoints += amount;
+    }
+    else if (this->_hitpoints == 100)
+        std::cout << "Can't repair. " << _name << " still has all of his hitpoints" << std::endl;
+    else
+        std::cout << "Diamontrap can't be repeaired . It has no more energy points" << std::endl;
 }

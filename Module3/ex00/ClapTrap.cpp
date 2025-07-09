@@ -84,7 +84,7 @@ void Claptrap::attack(const std::string& target)
 
 void Claptrap::takeDamage(unsigned int amount)
 {
-    if(this->_energypoints > 0)
+    if(this->_hitpoints > 0)
     {
         std::cout << "Claptrap " << this->_name 
                   << " suffers " << amount 
@@ -92,7 +92,7 @@ void Claptrap::takeDamage(unsigned int amount)
         this->_hitpoints -= amount;
     }
     else
-        std::cout << "The claptrap attacked is already hat 0 Hit points" << std::endl;
+        std::cout << "The claptrap attacked is already at 0 Hit points" << std::endl;
 
 }
 

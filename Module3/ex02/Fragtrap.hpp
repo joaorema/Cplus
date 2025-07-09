@@ -16,7 +16,10 @@ class Fragtrap : public Claptrap
         Fragtrap(std::string name);
         ~Fragtrap();
 
+        virtual void attack(const std::string& target);
         void highFiveGuys(void);
+        virtual void takeDamage(unsigned int amount);
+        virtual void beRepaired(unsigned int amount);
 
 };
 

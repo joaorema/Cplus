@@ -16,7 +16,9 @@ class Scavtrap : virtual public Claptrap
         void guardgate();
         bool getDefMode(void) const;
         void setDefmode(bool);
-        void attack(const std::string& target);
+        void attack(const std::string& target); //used to attack a target
+        void takeDamage(unsigned int amount);
+        void beRepaired(unsigned int amount);
         
 
 };

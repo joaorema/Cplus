@@ -25,6 +25,9 @@ int main()
     std::cout << std::endl;
     c.attack(a.getName());
     std::cout << std::endl;
+    a.takeDamage(30);
+    a.beRepaired(5);
+    std::cout << "John current hitpoits : " << a.getHitPoints() << std::endl;
     d.attack(c.getName());
     std::cout << std::endl;
     a.whoAmI();

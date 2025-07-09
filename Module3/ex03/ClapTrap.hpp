@@ -17,9 +17,9 @@ class Claptrap
     Claptrap(std::string name);             //costructor with name
     virtual ~Claptrap();                            //Destructor
     Claptrap(const Claptrap &other);
-    void attack(const std::string& target); //used to attack a target
-    void takeDamage(unsigned int amount);
-    void beRepaired(unsigned int amount);
+    virtual void attack(const std::string& target); //used to attack a target
+    virtual void takeDamage(unsigned int amount);
+    virtual void beRepaired(unsigned int amount);
 
     int getHitPoints(void) const;
     int getEnergyPoints(void) const;

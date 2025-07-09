@@ -15,6 +15,9 @@ class Fragtrap : virtual public Claptrap
         Fragtrap();
         Fragtrap(std::string name);
         ~Fragtrap();
+        void attack(const std::string& target); //used to attack a target
+        void takeDamage(unsigned int amount);
+        void beRepaired(unsigned int amount);
         
         void highFiveGuys(void);
 

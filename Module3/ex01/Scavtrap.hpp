@@ -7,7 +7,7 @@
 
 class Scavtrap : public Claptrap
 {
-    private:
+    protected:
         bool _defmode;
     public :
         Scavtrap();
