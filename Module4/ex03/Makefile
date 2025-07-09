@@ -7,7 +7,9 @@ SRC = main.cpp      	\
 	  Character.cpp 	\
 	  Cure.cpp			\
 	  Ice.cpp			\
-	  MateriaSource.cpp 
+	  MateriaSource.cpp \
+	  Polymorph.cpp		\
+	  Execute.cpp
 
 all: $(TARGET)
 

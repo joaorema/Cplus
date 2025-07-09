@@ -12,7 +12,10 @@ Character::~Character()
 {
     //std::cout << "Destroyed Character" << std::endl;
     for(int i = 0; i < 4; i++)
-        delete(_inventory[i]);
+    {
+        if(_inventory[i])
+            delete(_inventory[i]);
+    }
 }
 
 Character::Character(const Character& other) : _name(other._name) //for deep copy check inventory and return 0 if nothing

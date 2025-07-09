@@ -15,7 +15,7 @@ class Character : public ICharacter
     public:
     //constructor
         Character(const std::string name);
-        ~Character();
+        virtual ~Character();
 
     //copy and deep copy 
         Character(const Character& other);

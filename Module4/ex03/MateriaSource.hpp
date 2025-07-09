@@ -13,7 +13,7 @@ class MateriaSource : public IMateriaSource
     public:
     //constructors
         MateriaSource();
-        ~MateriaSource();
+        virtual ~MateriaSource();
 
     //copy and operator overload
         MateriaSource(const MateriaSource& other);

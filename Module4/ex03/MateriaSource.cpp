@@ -9,7 +9,10 @@ MateriaSource::MateriaSource()
 MateriaSource::~MateriaSource()
 {
     for(int i = 0; i < 4; i++)
-        delete(_templates[i]);
+    {
+        if(_templates[i])
+            delete(_templates[i]);
+    }
 }
 
 MateriaSource::MateriaSource(const MateriaSource& other) 
