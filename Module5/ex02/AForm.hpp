@@ -10,23 +10,23 @@
 
 class Bureaucrat;
 
-class Form 
+class AForm    //Virtual class 
 {
     private:
+        AForm();
         const std::string _name;
         bool _isSigned;
         const int _tosign;
         const int _toexecute;
-
+        virtual void Aexecute() = 0;
+        
     public:
 
-        Form();
-        Form(std::string name, int tosign, int toexecute);
-        ~Form();
-
-        Form(const Form& other);
-        Form& operator=(const Form& other);
-
+        AForm(std::string name, int tosign, int toexecute);
+        AForm(const AForm& other);
+        AForm& operator=(const AForm& other);
+        virtual ~AForm() = 0;
+        
         //getters
         int getToSign()const;
         int getToExecute()const;
@@ -34,7 +34,6 @@ class Form
         const std::string getName()const;
 
         void beSigned(const Bureaucrat& b);
-        
 
         class GradeTooLowException : public std::exception
         {
@@ -45,9 +44,14 @@ class Form
         {
             virtual const char* what() const throw();
         };
+        
+        class NotSigned : public std::exception
+        {
+            virtual const char* what() const throw();
+        };
 
-        void beSigned(Bureaucrat& b);
+        void execute(const Bureaucrat& executor);
 
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& form);
+std::ostream& operator<<(std::ostream& os, const AForm& form);

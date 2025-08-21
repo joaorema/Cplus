@@ -82,6 +82,13 @@ std::ostream& operator<<(std::ostream& os, const Form& form)
 
 }
 
+void Form::beSigned(Bureaucrat& b)
+{
+    if(b.getGrade() <= this->getToSign())
+        this->_isSigned = true;
+    else
+        throw Form::GradeTooLowException();
+}
 
 
 
