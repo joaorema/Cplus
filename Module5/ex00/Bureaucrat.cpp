@@ -1,31 +1,23 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat() : _name("Ambrosio")
 {
+    this->_grade = 42;
     //std::cout << "Normal constructor called" << std::endl
 }
 
-Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name)
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
-    try
+    if(grade < 1)
+        throw GradeTooHighException();
+    else if(grade > 150)
+        throw GradeTooLowException();
+    else
     {
-        int gr = grade;
-        if(gr >= 1 && gr <= 150)
-        {
-            //std::cout << "Grade is valid!" << std::endl;
-            _grade = grade;
-        }
-        else
-        {
-            throw(gr);
-        }
+        _grade = grade;
+        //std::cout << "Hello my name is " << name << " and my grade is " << grade << std::endl;
     }
-    catch(int grade)
-    {
-        std::cout << "Invalid Grade" << std::endl;
-        _grade = 0;
-    }
-    //std::cout << _name << " bureaucrat grade : " << grade << std::endl;
+
 
 }
 
@@ -34,16 +26,16 @@ Bureaucrat::~Bureaucrat()
     //std::cout << "Destructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other)
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : _grade(other._grade)
 {
     *this = other;
 }
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other)
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
     if(this != &other)
     {
-        this->_grade = other.getGrade();
+        this->_grade = other._grade;
     }
     return *this;
 }
@@ -63,20 +55,28 @@ void Bureaucrat::setGrade(int grade)
 }
 
 
-Bureaucrat Bureaucrat::increment()
+void Bureaucrat::increment()
 {
     this->_grade--;
-    if(_grade < 1)
-        std::cout << "Invalid Grade!" << std::endl;
-    return *this;
+    if(_grade == 0)
+        throw GradeTooLowException();
 }
 
-Bureaucrat Bureaucrat::decrement()
+void Bureaucrat::decrement()
 {
     this->_grade++;
-    if(_grade > 149 )
-        std::cout << "Invalid Grade!" << std::endl;
-    return *this;
+    if(_grade == 151)
+        throw GradeTooHighException();
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+    return ("Grade to High!");
+}
+
+const char* Bureaucrat::GradeTooLowException::what()const throw()
+{
+    return ("Grade to low!");
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)

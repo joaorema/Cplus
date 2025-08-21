@@ -14,15 +14,16 @@ class Bureaucrat
     private:
         const std::string _name;
         int _grade;
+
     public:
         //constructor & destructors
         Bureaucrat();
-        Bureaucrat(const std::string &name, int grade);
+        Bureaucrat(std::string name, int grade);
         ~Bureaucrat();
 
         //copy constructor
-        Bureaucrat(const Bureaucrat &other);
-        Bureaucrat& operator=(const Bureaucrat &other);
+        Bureaucrat(const Bureaucrat& other);
+        Bureaucrat& operator=(const Bureaucrat& other);
 
         //Getters & setters
         const std::string getName()const;
@@ -30,9 +31,19 @@ class Bureaucrat
         int getGrade()const;
         void setGrade(int grade);
 
-        Bureaucrat increment();
-        Bureaucrat decrement();
+        void increment();
+        void decrement();
         
+        class GradeTooLowException : public std::exception
+        {
+            virtual const char* what() const throw();
+        };
+
+        class GradeTooHighException : public std::exception
+        {
+            virtual const char* what() const throw();
+        };
+
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
