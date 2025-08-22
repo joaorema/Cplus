@@ -42,6 +42,21 @@ int main()
     thong.signForm(three);
     though.signForm(three);
     last.signForm(three);
+
+    std::cout << std::endl;
+    {
+        std::cout << GREEN "Try catch block" RESET << std::endl;
+        Bureaucrat hoy("Tiago", 25);
+        Form four("Final Exam", 40, 45);
+        try
+        {
+            hoy.signForm(four);
+        }
+        catch(std::exception &e)
+        {
+
+        }
+    }
     return 0;
 
 }

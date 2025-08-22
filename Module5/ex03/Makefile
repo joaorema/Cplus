@@ -4,13 +4,14 @@
 CXX = c++                                  
 CXXFLAGS = -Wall -Werror -Wextra -g -std=c++98
 
-TARGET = Aform                 
+TARGET = intern                 
 SRC = main.cpp       				\
 	  Bureaucrat.cpp 				\
 	  AForm.cpp						\
 	  PresidentialPardonForm.cpp 	\
 	  RobotomyRequestForm.cpp		\
-	  ShrubberyCreationForm.cpp
+	  ShrubberyCreationForm.cpp		\
+	  Intern.cpp
 
 ################################################################################
 #                                  RULES                                       #

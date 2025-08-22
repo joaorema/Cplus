@@ -6,7 +6,7 @@
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(target, 72, 45), _target(target)
 {
-    //std::cout << RED "Robot Request Form created!" RESET << std::endl;
+    std::cout << GREEN "Robot Request Form " RESET << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) : AForm(other.getName(), other.getToSign(), other.getToExecute()), _target(other._target)

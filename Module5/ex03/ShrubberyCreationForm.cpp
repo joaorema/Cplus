@@ -28,7 +28,7 @@ void ShrubberyCreationForm::printTree(std::ostream& os)
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(target, 145, 137), _target(target)
 {
-    //std::cout << RED "Shrubbery Created!" RESET << std::endl;
+    std::cout << GREEN "Shrubbery form created!" RESET << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm(other.getName(), other.getToSign(), other.getToExecute()), _target(other._target)
@@ -39,7 +39,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-    std::cout << "Shrubbery destroyed" << std::endl;
+   // std::cout << "Shrubbery destroyed" << std::endl;
 }
 
 std::string ShrubberyCreationForm::getTarget()const
