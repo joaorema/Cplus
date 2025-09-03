@@ -44,6 +44,7 @@ int main()
         {
             std::cout << "Deserialized failed" << std::endl;
         }
+        delete two;
     }
     {
         Data* final = new Data;
@@ -80,6 +81,8 @@ int main()
         {
             std::cout << "Deserialized failed" << std::endl;
         }
+        delete final;
+        delete test;
     }
 
 }
