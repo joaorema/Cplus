@@ -21,6 +21,25 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
     return *this;
 }
 
+void print_pseudo(const std::string& str)
+{
+    double value;
+
+    if (str == "nan" || str == "nanf")
+        value = std::numeric_limits<double>::quiet_NaN();
+    else if (str == "-inf" || str == "-inff")
+        value = -std::numeric_limits<double>::infinity();
+    else if (str == "+inf" || str == "+inff" || str == "inf" || str == "inff")
+        value = std::numeric_limits<double>::infinity();
+    else
+        return ;
+    std::cout << "char: impossible" << std::endl;
+    std::cout << "int: impossible" << std::endl;
+    std::cout << "float: " << static_cast<float>(value) << "f" << std::endl;
+    std::cout << "double: " << static_cast<double>(value) << std::endl;
+}
+
+
 void ScalarConverter::convert(const std::string& literal)
 {
     std::istringstream  text(literal);     //will take literal and put it in istringstream
@@ -29,6 +48,15 @@ void ScalarConverter::convert(const std::string& literal)
     std::string         check = text.str();
     bool                valid_double;
     
+    if (literal.length() == 1 && !isdigit(literal[0]))
+    {
+        char c = literal[0];
+        std::cout << "char: '" << c << "'" << std::endl;
+        std::cout << "int: " << static_cast<int>(c) << std::endl;
+        std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
+        std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
+        return;
+    }
     if(text >> val) //we try to pass the istringstream to double  //this first if will try to print Char: (either valid or invalid input)
     {
         text >> left; //try to extract rest into left
@@ -37,7 +65,8 @@ void ScalarConverter::convert(const std::string& literal)
         {                                                                                          //second check: if we have f but no "." to represent float
             std::cout << "Invalid Input" << std::endl;
             return ;
-        }                                                                                               
+        }
+
         if(val >= 0 && val <= 127 && val == static_cast<int>(val))                                   //if in ascii table 
         {
             if(isprint(static_cast<char>(val)))                                                     //if we have a letter corresponding to that nbr we display (exemple 98 = b)
@@ -68,31 +97,7 @@ void ScalarConverter::convert(const std::string& literal)
         
     }
     //since we cant >> to val
-    else if(literal == "nan" || literal == "nanf")
-    {
-        std::cout << "char: impossible" << std::endl;
-        std::cout << "int: impossible" << std::endl;
-        std::cout << "float: nanf" << std::endl;
-        std::cout << "double: nan" << std::endl;
-    }
-    else if(literal == "-inf" || literal == "-inff")
-    {
-        std::cout << "char: impossible" << std::endl;
-        std::cout << "int: impossible" << std::endl;
-        std::cout << "float: -inff" << std::endl;
-        std::cout << "double: -inf" << std::endl;   
-    }
-    else if(literal == "+inf" || literal == "+inff" || literal == "inf" || literal == "inff")
-    {
-        std::cout << "char: impossible" << std::endl;
-        std::cout << "int: impossible" << std::endl;
-        std::cout << "float: +inff" << std::endl;
-        std::cout << "double: +inf" << std::endl;
-    }
-    else
-    {
-        std::cout << "Invalid input try again" << std::endl;
-    }
+    print_pseudo(literal);
 
 
     
