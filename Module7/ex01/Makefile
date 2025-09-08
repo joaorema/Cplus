@@ -4,7 +4,7 @@
 CXX = c++                                  
 CXXFLAGS = -Wall -Werror -Wextra -g -std=c++98
 
-TARGET = Template                
+TARGET = Iter               
 SRC = main.cpp       				
 	
 ################################################################################

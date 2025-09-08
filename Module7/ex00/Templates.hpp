@@ -7,13 +7,13 @@
 
 
 template<typename Input>
-void swap(Input a, Input b)
+void swap(Input &a, Input &b)
 {
-    std::cout << "Value of A: " << a << " Value of B: " << b << std::endl;
+    //std::cout << "Value of A: " << a << " Value of B: " << b << std::endl;
     Input temp = a;
     a = b;
     b = temp;
-    std::cout << "After swap value of A: " << a << " value of B: " << b << std::endl;
+    //std::cout << "After swap value of A: " << a << " value of B: " << b << std::endl;
 
 }
 
