@@ -4,7 +4,7 @@
 CXX = c++                                  
 CXXFLAGS = -Wall -Werror -Wextra -g -std=c++98
 
-TARGET = Template                
+TARGET = Template             
 SRC = main.cpp       				
 	
 ################################################################################
@@ -15,7 +15,13 @@ all: $(TARGET)
 
 $(TARGET): $(SRC)
 	@$(CXX) $(CXXFLAGS) $^ -o $@
+
 clean: 
 	@rm -f $(TARGET)
 
-.PHONY: all clean	
+fclean: clean
+	@rm -f $(TARGET)
+
+re: fclean all
+
+.PHONY: all clean fclean re
