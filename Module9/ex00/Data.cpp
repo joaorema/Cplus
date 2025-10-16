@@ -93,8 +93,17 @@ void Data::checkData(const char *file)
 void Data::getRateDate(const std::string &date, double value)
 {
     std::map<std::string, double>::iterator it = _data.lower_bound(date);    //iterator at the closest date
-    if(it->first != date)
+    if(it == _data.end())
     {
+        --it;
+    }
+    else if(it->first != date)
+    {
+        if(it == _data.begin())
+        {
+            std::cerr << "Error: no data available for : " << date << std::endl;
+            return;
+        }
         it--;
     }
     double rate = it->second;
@@ -139,7 +148,7 @@ bool Data::validDate(const std::string &date)
     int m = std::atoi(month.c_str());
     int d = std::atoi(day.c_str());
 
-    if(m < 1 || m > 12 || d < 1 || d > 31)      //check month and day 
+    if(m < 1 || m > 12 || d < 1 || d > 31 )      //check month and day 
         return false;
 
     return true;
