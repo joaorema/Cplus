@@ -4,7 +4,7 @@
 #include <algorithm>
 
 template<typename Container>
-void find_value(const Container &a, int b)
+void easyFind(const Container &a, int b)
 {
     typename Container::const_iterator n = std::find(a.begin(), a.end(), b);    //create a iterator to run the vector from begin-to end and find the nb
     

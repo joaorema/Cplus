@@ -21,16 +21,16 @@ int main()
               << std::endl;
 
     std::cout << GREEN"Lets try to find 2 in the container"RESET << std::endl;
-    ::find_value(numbers, 2);
+    ::easyFind(numbers, 2);
     std::cout << std::endl;
     std::cout << GREEN"Lets try to find 7 in the container"RESET << std::endl;
-    ::find_value(numbers, 7);
+    ::easyFind(numbers, 7);
     std::cout << std::endl;
     std::cout << GREEN"Lets try to find 16 in the container"RESET << std::endl;
-    ::find_value(numbers, 16);
+    ::easyFind(numbers, 16);
     std::cout << std::endl;
     std::cout << GREEN"Lets try to find 42 in the container"RESET << std::endl;
-    ::find_value(numbers, 42);
+    ::easyFind(numbers, 42);
     std::cout << std::endl;
     
     

@@ -31,7 +31,7 @@ void identify(Base* p)              //Print type of object pointed by class
         else
             std::cout << "Ptr returned class C" << std::endl;
     }
-    else
+    else if(p == NULL)
     {
         std::cout << "Invalid Base ptr" << std::endl;
         return;
