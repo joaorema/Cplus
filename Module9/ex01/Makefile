@@ -2,7 +2,7 @@
 #                                     CONFIG                                   #
 ################################################################################
 CXX = c++                                  
-CXXFLAGS = -Wall -Werror -Wextra -g -std=c++98
+CXXFLAGS = -Wall -Werror -Wextra -g -std=c++98 
 
 TARGET = RPN            
 SRC = main.cpp	\

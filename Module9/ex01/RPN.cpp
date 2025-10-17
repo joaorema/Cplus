@@ -4,9 +4,7 @@
 RPN::RPN(const char *str)
 {
     if(str)
-    {
         _string = str;
-    }
 }
 
 RPN::~RPN()
@@ -31,9 +29,7 @@ int RPN::addToStack()
     for(std::string::iterator it = this->_string.begin(); it != this->_string.end(); ++it)
     {
         if(isdigit(*it))
-        {
             this->_stack.push(*it - '0');
-        }
         else if(*it == '*' || *it == '/' || *it == '+' || *it == '-')
         {
             int right = this->_stack.top();
