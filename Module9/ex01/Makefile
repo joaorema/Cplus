@@ -4,8 +4,9 @@
 CXX = c++                                  
 CXXFLAGS = -Wall -Werror -Wextra -g -std=c++98
 
-TARGET = btc             
-SRC = main.cpp	
+TARGET = RPN            
+SRC = main.cpp	\
+	  RPN.cpp
 	
 ################################################################################
 #                                  RULES                                       #
