@@ -16,12 +16,10 @@ int main(int ac, char *av[])
     }
     johnson.addintoVec(str);
     johnson.addintoDeq(str);
-    std::cout << "Original deque" << std::endl;
     johnson.printDeq();
 
-
-    johnson.recursivePairSort(johnson._deq, 1);
-    std::cout << "After recursive Pair Sort " << std::endl;
+    johnson.recursivePairSort(johnson._deq, 1);   // Step 1
+    johnson.recursiveParse(johnson._deq);         // Steps 2 + 3
     johnson.printDeq();
     
 

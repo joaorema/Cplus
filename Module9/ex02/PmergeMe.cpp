@@ -109,31 +109,116 @@ void PmergeMe::recursivePairSort(std::deque<int> &d, size_t blockSize)
     recursivePairSort(d, blockSize * 2);
 }
 
-
-/*
-PmergeMe::PmergeMe(const PmergeMe& other)
+//step 2
+void PmergeMe::recursiveParse(std::deque<int> &element)
 {
-
-}
-
-PmergeMe& PmergeMe::operator=(const PmergeMe& other)
-{
-
-}
-
-void PmergeMe::addNumber(int n)
-{
-
-}
-
-void PmergeMe::sort()
-{
-
-}
-
-void PmergeMe::print()const
-{
+    if(element.size() <= 1)
+        return;
     
+    std::deque<int> a, b;
+    for(size_t i = 0; i + 1 < element.size(); i += 2)
+    {
+        int x = element[i];
+        int y = element[i + 1];
+        if(x > y)
+            std::swap(x,y);
+        a.push_back(x);
+        b.push_back(y);
+    }
+
+    //if odd element size
+    if(element.size() % 2 != 0)
+        a.push_back(element.back());
+    
+    //recursive call on b elements
+    recursiveParse(b);
+
+    //start main and pend
+    std::deque<int> main;
+    std::deque<int> pend;
+
+    if(!b.empty())
+    {
+        main.push_back(b.front());
+        if(!a.empty())
+            main.push_back(a.front());
+    }
+    for(size_t i = 1; i < b.size(); ++i)
+    {
+        pend.push_back(b[i]);
+    }
+
+    for(size_t i = 1; i < a.size(); ++i)
+    {
+        pend.push_back(a[i]);
+    }
+
+   
+    jacobInsert(main, pend);
+ 
+    element = main;
 }
-*/
+
+
+void PmergeMe::binaryInsert(std::deque<int> &main, int value)
+{
+    int left = 0;
+    int right = main.size();
+
+    //binary search to find correct position
+    while(left < right)
+    {
+        int mid = left + (right - left) / 2;
+        if(value < main[mid])
+            right = mid;
+        else
+            left = mid + 1;
+    }
+    main.insert(main.begin() + left, value);
+}
+
+
+//step 3
+std::vector<int> PmergeMe::generateJacob(size_t limit)
+{
+    std::vector<int> sequence;
+    sequence.push_back(0);
+    sequence.push_back(1);
+
+    while(sequence.back() < (int)limit)
+    {
+        int next = sequence[sequence.size() - 1] + 2 *sequence[sequence.size() - 2];
+        sequence.push_back(next);
+    }
+    return sequence;
+}
+
+void PmergeMe::jacobInsert(std::deque<int> &main, std::deque<int> &pend)
+{
+    std::vector<int> jacob = generateJacob(pend.size() + 2);
+
+    for(size_t j = 2; j < jacob.size(); ++j)
+    {
+        int current = jacob[j];
+        int previous = jacob[j - 1];
+
+        if(current > (int)pend.size())
+            current = pend.size();
+        
+        // Insert in reverse between (curr-1) and (prev)
+        for(int i = current - 1; i >= previous &&  i >= 0; --i)
+        {
+            binaryInsert(main, pend[i]);
+        }
+        if(current == (int)pend.size())
+            break;
+        
+        // If any pend elements remain (not inserted by Jacobsthal groups)
+        for (int i = pend.size() - 1; i >= 0; --i)
+            binaryInsert(main, pend[i]);
+
+    }
+
+
+}
 
