@@ -2,21 +2,27 @@
 
 int main(int ac, char *av[])
 {
-    //lets first parse the arguments in ac/av
     if(ac != 2)
     {
         std::cerr << "invalid nbr of arguments!" << std::endl;
         return 1;
     }
-    //first we parse
-    PmergeMe teste;
+    PmergeMe johnson;
     std::string str = av[1];
-    if(teste.parseAc(str) == false)
+    if(johnson.parseAc(str) == false)
     {
         std::cerr << "Error" << std::endl;
         return 1;
     }
-    teste.addintoDeq(str);
+    johnson.addintoVec(str);
+    johnson.addintoDeq(str);
+    std::cout << "Original deque" << std::endl;
+    johnson.printDeq();
+
+
+    johnson.recursivePairSort(johnson._deq, 1);
+    std::cout << "After recursive Pair Sort " << std::endl;
+    johnson.printDeq();
     
 
 

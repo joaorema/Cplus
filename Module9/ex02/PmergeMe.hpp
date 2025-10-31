@@ -11,14 +11,15 @@
 class PmergeMe
 {
     private:
-        std::vector<int> _vec;
-        std::deque<int> _deq;
 
         //std::vector<int> forJohnsonSort(const std::vector<int> &vector);
 
     public:
         PmergeMe();
         ~PmergeMe();
+
+        std::vector<int> _vec;
+        std::deque<int> _deq;
 
 
         //PmergeMe(const PmergeMe& other);
@@ -30,5 +31,11 @@ class PmergeMe
         bool parseAc(std::string &input);
         void addintoVec(std::string &input);
         void addintoDeq(std::string &input);
-        
+
+        void printVeq();
+        void printDeq();
+
+        void swapBlocks(std::deque<int> &d, size_t pos1, size_t pos2, size_t blockSize);
+        void pairSortLevel(std::deque<int> &d, size_t blockSize);        
+        void recursivePairSort(std::deque<int> &d, size_t blockSize);
 };
